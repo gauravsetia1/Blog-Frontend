@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm bg-dark d-flex justify-content-between">
+  <ul class="navbar-nav text-white">
+    <li class="nav-item">
+      <a class="nav-link d-flex log text-white" routerLink="/home">
+        <img src="https://www.shareicon.net/data/128x128/2016/04/12/748667_logo_512x512.png" width="30px" height="30px" class="rounded-lg">
+        &nbsp;
+        <b style="font-size: 20px">Blogger</b>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav text-white">
+    <li class="nav-item">
+      <a routerLink="/addblog" class="nav-link log text-white" ><i class="material-icons">add_circle_outline</i><span style="vertical-align: top">Blog</span></a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/myprofile" class="nav-link log text-white" ><i class="material-icons">account_circle</i><span style="vertical-align: top">My Profile</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link log" (click)="logout()"><i class="material-icons">exit_to_app</i><span style="vertical-align: top">Logout</span></a>
+    </li>
+  </ul>
+</nav>

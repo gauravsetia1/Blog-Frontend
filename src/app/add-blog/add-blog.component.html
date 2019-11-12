@@ -1,0 +1,42 @@
+<div class="color">
+  <div class="container w-50">
+    <form >
+      <div class="form-group pt-3">
+        <h3 class="m-2">Title<span class="text-danger">*</span> :-</h3>
+        <input type="text" class="form-control" placeholder="Enter Title" name="title" [(ngModel)]="title">
+      </div>
+      <div class="form-group">
+        <h3 class="m-2">Image :-</h3>
+        <!--<input type="file" name="pic" accept="image/*" [(ngModel)]="image">-->
+        <input type="text" [(ngModel)]="image" name="image">
+      </div>
+      <h3 class="m-2">Category<span class="text-danger">*</span> :- </h3>
+      <select class="form-control" name="category" [(ngModel)]="category">
+        <option value="Lifestyle">Lifestyle</option>
+        <option value="Travel">Travel</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Nature">Nature</option>
+      </select>
+      <div class="form-group">
+        <h3 class="m-2">Privacy<span class="text-danger">*</span> :- </h3>
+        <select class="form-control" name="privacy" [(ngModel)]="privacy">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="m-2">Description<span class="text-danger">*</span> :- </h3>
+        <input type="text" class="form-control" placeholder="Enter Description" name="description" [(ngModel)]="description">
+      </div>
+      <div class="form-group">
+        <h3 class="m-2">Add Blog<span class="text-danger">*</span> :- </h3>
+        <textarea class="form-control" rows="5" placeholder="Write Your Blog Here....." name="blog" [(ngModel)]="blog"></textarea>
+      </div>
+    </form>
+
+    <div class="text-center p-4">
+      <button class="btn btn-outline-primary" (click)="addBlog()">Post</button>
+    </div>
+
+  </div>
+</div>
