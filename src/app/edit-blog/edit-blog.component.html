@@ -3,15 +3,15 @@
     <form >
       <div class="form-group pt-3">
         <h3 class="m-2">Title<span class="text-danger">*</span> :-</h3>
-        <input type="text" class="form-control" placeholder="Enter Title" name="title" [(ngModel)]="title">
+        <input type="text" class="form-control" placeholder="Enter Title" name="title" [(ngModel)]="blog.title">
       </div>
       <div class="form-group">
         <h3 class="m-2">Image :-</h3>
         <!--<input type="file" name="pic" accept="image/*" [(ngModel)]="image">-->
-        <input type="text" class="form-control" placeholder="Enter Image Address" [(ngModel)]="image" name="image">
+        <input type="text" [(ngModel)]="blog.image" name="image" placeholder="Enter Image Address" class="form-control">
       </div>
       <h3 class="m-2">Category<span class="text-danger">*</span> :- </h3>
-      <select class="form-control" name="category" [(ngModel)]="category">
+      <select class="form-control" name="category" [(ngModel)]="blog.category">
         <option value="Lifestyle">Lifestyle</option>
         <option value="Travel">Travel</option>
         <option value="Fashion">Fashion</option>
@@ -19,23 +19,23 @@
       </select>
       <div class="form-group">
         <h3 class="m-2">Privacy<span class="text-danger">*</span> :- </h3>
-        <select class="form-control" name="privacy" [(ngModel)]="privacy">
+        <select class="form-control" name="privacy" [(ngModel)]="blog.privacy">
           <option value="public">Public</option>
           <option value="private">Private</option>
         </select>
       </div>
       <div class="form-group">
         <h3 class="m-2">Description<span class="text-danger">*</span> :- </h3>
-        <input type="text" class="form-control" placeholder="Enter Description" name="description" [(ngModel)]="description">
+        <input type="text" class="form-control" placeholder="Enter Description" name="description" [(ngModel)]="blog.description">
       </div>
       <div class="form-group">
         <h3 class="m-2">Add Blog<span class="text-danger">*</span> :- </h3>
-        <textarea class="form-control" rows="5" placeholder="Write Your Blog Here....." name="blog" [(ngModel)]="blog"></textarea>
+        <textarea class="form-control" rows="5" placeholder="Write Your Blog Here....." name="blog" [(ngModel)]="blog.blog"></textarea>
       </div>
     </form>
 
     <div class="text-center p-4">
-      <button class="btn btn-outline-primary" (click)="addBlog()">Post</button>
+      <button class="btn btn-outline-primary" (click)="save()">Save</button>
     </div>
 
   </div>

@@ -10,7 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import {HttpClientModule} from '@angular/common/http';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppService} from './app.service';
 import {AuthenticationService} from './authentication.service';
 import {MyProfileService} from './myprofile/myprofile.service';
@@ -18,6 +18,8 @@ import {HomeService} from './home/home.service';
 import { AddBlogComponent } from './add-blog/add-blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import {BlogDetailService} from './blog-detail/blog-detail.service';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import {EditBlogService} from './edit-blog/edit-blog.service';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import {BlogDetailService} from './blog-detail/blog-detail.service';
     MyprofileComponent,
     AddBlogComponent,
     BlogDetailComponent,
+    EditBlogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AppService,
@@ -42,6 +46,7 @@ import {BlogDetailService} from './blog-detail/blog-detail.service';
     MyProfileService,
     HomeService,
     BlogDetailService,
+    EditBlogService,
   ],
   bootstrap: [AppComponent]
 })

@@ -32,19 +32,37 @@ export class MyprofileComponent implements OnInit {
   }
 
   save() {
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
-    return this.http.put(this.url, this.user, {headers}).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['/myprofile']);
-      this.disabled = true;
-    });
+    if (this.user.name != null && this.user.phone != null && this.user.gender != null) {
+      /*if (this.user.phone.length === 10) {*/
+        const token = sessionStorage.getItem('token');
+        const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+        return this.http.put(this.url, this.user, {headers}).subscribe(data => {
+          console.log(data);
+          this.router.navigate(['/myprofile']);
+          this.disabled = true;
+        });
+      /*} else {
+        alert('Mobile No. should be 10 Digits');
+      }*/
+    } else {
+      alert('Fill all Details');
+    }
   }
 
   delete(id) {
-    this.myProfileService.deleteUserBlog(id).subscribe( data => {
-      this.router.navigate(['/myprofile']);
-    });
+    if (confirm('Are You Sure ?? You Want to Delete Blog...'))
+    {
+      this.myProfileService.deleteUserBlog(id).subscribe( data => {
+        console.log(data);
+        this.myProfileService.getUsersBlog().subscribe(data1 => {
+          this.blog = data1;
+          console.log(data1);
+        });
+      });
+    } else {}
   }
 
+  onSelect(blog) {
+    this.router.navigate(['/myprofile', blog.id]);
+  }
 }

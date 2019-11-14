@@ -9,7 +9,7 @@ import {HomeService} from './home.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  search;
   blog;
   constructor(private router: Router, private homeService: HomeService) { }
 
@@ -21,5 +21,11 @@ export class HomeComponent implements OnInit {
 
   onSelect(blog) {
     this.router.navigate(['/home', blog.id]);
+  }
+
+  searchfortitle() {
+    this.homeService.getsearch(this.search).subscribe(data => {
+      this.blog = data;
+    });
   }
 }

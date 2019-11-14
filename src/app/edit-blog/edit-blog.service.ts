@@ -5,7 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class BlogDetailService {
+export class EditBlogService {
 
   constructor(private http: HttpClient) {}
 

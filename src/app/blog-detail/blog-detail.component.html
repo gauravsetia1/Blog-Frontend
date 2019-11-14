@@ -1,3 +1,13 @@
-<div>
-  cshvckhv
+<div class="color pb-3 pt-3">
+  <div class="container mt-2 pb-2 bg-white">
+    <h2 class="font-weight-bolder font-italic pt-3" style="font-family: 'Franklin Gothic Heavy'">{{blog.title}}</h2>
+    <div class="d-flex mb-3 text-muted">
+      <i class="material-icons">date_range</i>{{blog.date}}2019/11/5 &nbsp; &nbsp; &nbsp;
+      <i class="material-icons">book</i>{{blog.category}}
+    </div>
+    <p class="mt-4 ml-4" [innerHTML]="blog.blog"></p>
+
+    <p class="ml-4 mt-4" [innerHTML]="blog.blog"></p>
+    <p class="ml-4 mt-4" >{{blog.blog}}</p>
+  </div>
 </div>
