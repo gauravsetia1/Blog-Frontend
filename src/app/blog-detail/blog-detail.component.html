@@ -1,8 +1,14 @@
 <div class="color pb-3 pt-3">
   <div class="container mt-2 pb-2 bg-white">
+    <div class="d-flex justify-content-around pt-3">
+      <h3>{{blog.users.name}}</h3>
+      <button *ngIf="user.id !== blog.users.id" class="btn btn-outline-danger" (click)="following(blog.users.id)">Follow</button>
+      <button *ngIf="blog.users.id === follow.users1.id" class="btn btn-outline-danger">Unfollow</button>
+    </div>
+    <hr>
     <h2 class="font-weight-bolder font-italic pt-3" style="font-family: 'Franklin Gothic Heavy'">{{blog.title}}</h2>
     <div class="d-flex mb-3 text-muted">
-      <i class="material-icons">date_range</i>{{blog.date}}2019/11/5 &nbsp; &nbsp; &nbsp;
+      <i class="material-icons">date_range</i>{{blog.date | date: 'short'}}&nbsp; &nbsp; &nbsp;
       <i class="material-icons">book</i>{{blog.category}}
     </div>
     <p class="mt-4 ml-4" [innerHTML]="blog.blog"></p>

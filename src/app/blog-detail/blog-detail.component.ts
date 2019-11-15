@@ -9,9 +9,10 @@ import {BlogDetailService} from './blog-detail.service';
   styleUrls: ['./blog-detail.component.scss']
 })
 export class BlogDetailComponent implements OnInit {
-
+user;
   blogId;
   blog;
+  follow;
   constructor(private blogDetailService: BlogDetailService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
@@ -23,6 +24,20 @@ export class BlogDetailComponent implements OnInit {
         this.blog = data;
         console.log(data);
       });
+    this.blogDetailService.currentUser().subscribe( data => {
+      this.user = data;
+      console.log(data);
+    });
+    this.blogDetailService.getFollowers().subscribe( data => {
+      this.follow = data;
+    });
   }
 
+  following(id) {
+    this.blogDetailService.addFollower(id).subscribe( data => {
+      console.log(data);
+      alert('You Started Following ' + this.blog.users.name);
+
+    });
+  }
 }

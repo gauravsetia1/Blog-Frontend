@@ -26,7 +26,7 @@ export class HomeService {
   addFollower(id) {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders({Authorization: 'Basic ' + token});
-    const url = 'http://localhost:8080/blog/search/' + name;
+    const url = 'http://localhost:8080/follow/new/UserId/' + id;
     return this.http.get(url, {headers});
   }
 
