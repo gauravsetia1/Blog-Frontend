@@ -3,7 +3,7 @@
     <h3>Home</h3>
   </div>
 
-  <div class="col-7 bg-white">
+  <div class="col-7 bg-white rounded-lg">
     <div *ngFor="let b of blog" class="p-3">
       <div *ngIf="b.privacy!='private'">
         <div class="pb-2 d-flex justify-content-between">
@@ -13,7 +13,7 @@
           <i class="material-icons">date_range</i>{{b.date | date: 'short'}} &nbsp; &nbsp; &nbsp;
           <i class="material-icons">book</i>{{b.category}}
         </div>
-        <div style="height: 150px; width: 150px">
+        <div *ngIf="b.image!=null" style="height: 150px; width: 150px">
           <img src="{{b.image}}" width="100%">
         </div>
         <div>

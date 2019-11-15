@@ -16,4 +16,5 @@ export const MAIN_ROUTES: Routes = [
   {path: 'myprofile', component: MyprofileComponent},
   {path: 'myprofile/:id', component: EditBlogComponent},
   {path: 'addblog', component: AddBlogComponent},
+
 ];

@@ -29,4 +29,18 @@ export class MyProfileService {
     const url = 'http://localhost:8080/blog/deleteBlog/' + id;
     return this.http.post(url, null, {headers});
   }
+
+  getFollowers() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/follow/followers';
+    return this.http.get(url, {headers});
+  }
+
+  deleteFollowers(id) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/follow/delete/UserId/' + id;
+    return this.http.get(url, {headers});
+  }
 }

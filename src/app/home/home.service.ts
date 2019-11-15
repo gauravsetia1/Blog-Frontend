@@ -23,4 +23,11 @@ export class HomeService {
     return this.http.get(url, {headers});
   }
 
+  addFollower(id) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/blog/search/' + name;
+    return this.http.get(url, {headers});
+  }
+
 }

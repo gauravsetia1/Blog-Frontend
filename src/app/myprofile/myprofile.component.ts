@@ -13,6 +13,8 @@ export class MyprofileComponent implements OnInit {
   user;
   blog;
   disabled = true;
+  diff = true;
+  arr;
   url = 'http://localhost:8080/users/update';
   constructor(private myProfileService: MyProfileService, private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
@@ -25,10 +27,18 @@ export class MyprofileComponent implements OnInit {
         console.log(data1);
       });
     });
+    this.myProfileService.getFollowers().subscribe( data => {
+      this.arr = data;
+      console.log(data);
+    });
   }
 
   toggle() {
     this.disabled = false;
+  }
+
+  change() {
+    this.diff = !this.diff;
   }
 
   save() {
@@ -50,8 +60,7 @@ export class MyprofileComponent implements OnInit {
   }
 
   delete(id) {
-    if (confirm('Are You Sure ?? You Want to Delete Blog...'))
-    {
+    if (confirm('Are You Sure ?? You Want to Delete Blog...')) {
       this.myProfileService.deleteUserBlog(id).subscribe( data => {
         console.log(data);
         this.myProfileService.getUsersBlog().subscribe(data1 => {
@@ -64,5 +73,17 @@ export class MyprofileComponent implements OnInit {
 
   onSelect(blog) {
     this.router.navigate(['/myprofile', blog.id]);
+  }
+
+  deleteFollowers(id) {
+    if (confirm('Do You want to UNFOLLOW ???')) {
+      this.myProfileService.deleteFollowers(id).subscribe( data => {
+        console.log(data);
+        this.myProfileService.getFollowers().subscribe( data => {
+          this.arr = data;
+          console.log(data);
+        });
+      });
+    } else {}
   }
 }
