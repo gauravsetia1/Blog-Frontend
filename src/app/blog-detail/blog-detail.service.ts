@@ -36,4 +36,11 @@ export class BlogDetailService {
     const url = 'http://localhost:8080/follow/followers';
     return this.http.get(url, {headers});
   }
+
+  getComment() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/comment/get';
+    return this.http.get(url, {headers});
+  }
 }

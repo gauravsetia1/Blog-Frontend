@@ -3,7 +3,6 @@
     <div class="d-flex justify-content-around pt-3">
       <h3>{{blog.users.name}}</h3>
       <button *ngIf="user.id !== blog.users.id" class="btn btn-outline-danger" (click)="following(blog.users.id)">Follow</button>
-      <button *ngIf="blog.users.id === follow.users1.id" class="btn btn-outline-danger">Unfollow</button>
     </div>
     <hr>
     <h2 class="font-weight-bolder font-italic pt-3" style="font-family: 'Franklin Gothic Heavy'">{{blog.title}}</h2>
@@ -11,9 +10,21 @@
       <i class="material-icons">date_range</i>{{blog.date | date: 'short'}}&nbsp; &nbsp; &nbsp;
       <i class="material-icons">book</i>{{blog.category}}
     </div>
+    <div class="text-center">
+      <img src="{{blog.image}}" height="500px" width="500px" >
+    </div>
     <p class="mt-4 ml-4" [innerHTML]="blog.blog"></p>
 
     <p class="ml-4 mt-4" [innerHTML]="blog.blog"></p>
     <p class="ml-4 mt-4" >{{blog.blog}}</p>
   </div>
+
+
+ <!-- <div class="container">
+    <h3>Add Comments</h3>
+    <div>
+      <textarea rows="3" cols="20" [(ngModel)]="cmt"></textarea>
+      <button class="btn btn-outline-primary" (click)="addComment()">Post</button>
+    </div>
+  </div>-->
 </div>

@@ -7,18 +7,24 @@
   </a>
   <div class="container border w-25 bg-secondary rounded-lg shd">
     <h3 class="pt-2">Signup</h3>
-    <form>
+    <form class="was-validated">
       <div class="form-group pt-1">
         <label for="name">Full Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" [(ngModel)]="name">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" [(ngModel)]="name" required="true">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">InValid field</div>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="email">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="email" required="true">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">InValid field.</div>
       </div>
       <div class="form-group">
         <label for="phone">Phone:</label>
-        <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" [(ngModel)]="phone">
+        <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" [(ngModel)]="phone" required="true">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">InValid field.</div>
       </div>
       <label>Gender:</label>
       <div>
@@ -27,14 +33,15 @@
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" [(ngModel)]="password">
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" [(ngModel)]="password" required="true">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">InValid field</div>
       </div>
       <div class="form-group">
         <label for="pwd">Confirm Password:</label>
-        <input type="password" class="form-control" id="cpwd" placeholder="Confirm password" name="pwd" [(ngModel)]="cpassword">
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" name="remember"> I agree to all terms and conditions</label>
+        <input type="password" class="form-control" id="cpwd" placeholder="Confirm password" name="pwd" [(ngModel)]="cpassword" required="true">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">InValid field</div>
       </div>
       <div class="text-center mb-3">
         <button type="submit" class="btn btn-dark" (click)="finalData()">Signup</button>

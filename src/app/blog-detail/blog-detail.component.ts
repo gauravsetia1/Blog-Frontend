@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BlogDetailService} from './blog-detail.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class BlogDetailComponent implements OnInit {
 user;
   blogId;
   blog;
-  follow;
+  cmt = 'gaurav';
+  abc;
   constructor(private blogDetailService: BlogDetailService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
@@ -28,8 +29,8 @@ user;
       this.user = data;
       console.log(data);
     });
-    this.blogDetailService.getFollowers().subscribe( data => {
-      this.follow = data;
+    this.blogDetailService.getComment().subscribe( data => {
+      this.abc = data;
     });
   }
 
@@ -37,7 +38,17 @@ user;
     this.blogDetailService.addFollower(id).subscribe( data => {
       console.log(data);
       alert('You Started Following ' + this.blog.users.name);
+      this.router.navigate(['/home']);
+    });
+  }
 
+  addComment() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const ar = {comment: this.cmt }
+    return this.http.post('http://localhost:8080/comment/add/' + this.blogId, ar, {headers}).subscribe(data => {
+      console.log(data);
+      this.ngOnInit();
     });
   }
 }
