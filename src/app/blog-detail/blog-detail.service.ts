@@ -37,10 +37,10 @@ export class BlogDetailService {
     return this.http.get(url, {headers});
   }
 
-  getComment() {
+  getComment(id) {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders({Authorization: 'Basic ' + token});
-    const url = 'http://localhost:8080/comment/get';
+    const url = 'http://localhost:8080/comment/getCmt/' + id;
     return this.http.get(url, {headers});
   }
 }

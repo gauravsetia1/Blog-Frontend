@@ -12,7 +12,7 @@ export class BlogDetailComponent implements OnInit {
 user;
   blogId;
   blog;
-  cmt = 'gaurav';
+  cmt;
   abc;
   constructor(private blogDetailService: BlogDetailService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -29,7 +29,7 @@ user;
       this.user = data;
       console.log(data);
     });
-    this.blogDetailService.getComment().subscribe( data => {
+    this.blogDetailService.getComment(this.blogId).subscribe( data => {
       this.abc = data;
     });
   }
@@ -48,7 +48,11 @@ user;
     const ar = {comment: this.cmt }
     return this.http.post('http://localhost:8080/comment/add/' + this.blogId, ar, {headers}).subscribe(data => {
       console.log(data);
-      this.ngOnInit();
+      /*this.ngOnInit();*/
+      alert('Comment Added');
+      this.blogDetailService.getComment(this.blogId).subscribe( data => {
+        this.abc = data;
+      });
     });
   }
 }

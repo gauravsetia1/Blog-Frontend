@@ -1,5 +1,5 @@
-<div class="color pb-3 pt-3">
-  <div class="container mt-2 pb-2 bg-white">
+<div class="color pb-3 pt-3 row mx-0">
+  <div class="container mt-2 pb-2 bg-white col-8">
     <div class="d-flex justify-content-around pt-3">
       <h3>{{blog.users.name}}</h3>
       <button *ngIf="user.id !== blog.users.id" class="btn btn-outline-danger" (click)="following(blog.users.id)">Follow</button>
@@ -19,12 +19,24 @@
     <p class="ml-4 mt-4" >{{blog.blog}}</p>
   </div>
 
-
- <!-- <div class="container">
-    <h3>Add Comments</h3>
-    <div>
-      <textarea rows="3" cols="20" [(ngModel)]="cmt"></textarea>
+  <div class="container col-3">
+    <h3>Comments :-</h3>
+    <div class="form-group d-flex pb-4">
+      <input type="text" [(ngModel)]="cmt" name="cmt" class="form-control">
       <button class="btn btn-outline-primary" (click)="addComment()">Post</button>
     </div>
-  </div>-->
+
+    <div *ngIf="abc.length != 0" class="bg-white rounded-lg p-3">
+      <div *ngFor="let a of abc">
+        <div class="form-group">
+          <i class="material-icons">account_circle</i>&nbsp;<span style="vertical-align: top">{{a.users.name}} :-</span>
+          <input type="text" value="{{a.comment}}" disabled class="form-control" >
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="abc.length == 0">
+      <h3 class="pt-3 text-muted text-center">No Comments yet !!</h3>
+    </div>
+  </div>
 </div>
