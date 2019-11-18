@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
 
   finalData() {
     // tslint:disable-next-line:triple-equals
-    for (let i = 0; i < this.users.length; i++) {
+    /*for (let i = 0; i < this.users.length; i++) {
       if (this.users[i].email == this.email) {
         alert('Email is Taken');
         this.bool = 1;
@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
       } else {
         this.bool = 0;
       }
-    }
+    }*/
 
     if (this.bool == 0) {
       if (this.email != null && this.password != null && this.name != null && this.phone != null && this.gender != null) {
